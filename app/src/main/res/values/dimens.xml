@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="tv_título">30sp</dimen>
+    <dimen name="btn_publicar">22sp</dimen>
+    <dimen name="et_título">18sp</dimen>
+
+    <dimen name="margem_notícia">200dp</dimen>
+    <dimen name="margem_grande">50dp</dimen>
+    <dimen name="margem_média">32dp</dimen>
+    <dimen name="margem_pequena">20dp</dimen>
+    <dimen name="margem_min">12dp</dimen>
+
+    <dimen name="padding_médio">15dp</dimen>
+
+</resources>

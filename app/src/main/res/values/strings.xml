@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">App Notícias Adm</string>
+
+    <string name="título_principal">Escreva uma Notícia</string>
+
+    <string name="btn_publicar">Publicar Notícia</string>
+
+    <string name="et_hint_título">Título</string>
+    <string name="et_hint_noticia">Escreva aqui a notícia</string>
+    <string name="et_hint_data">Data de Publicação</string>
+    <string name="et_hint_autor">Autor</string>
+
+</resources>

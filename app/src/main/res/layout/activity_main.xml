@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/navy_teal"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margem_grande"
+            android:text="@string/título_principal"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tv_título"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_médio"
+            android:layout_marginTop="@dimen/margem_grande"
+            android:layout_marginEnd="@dimen/padding_médio"
+            android:background="@color/white"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:hint="@string/et_hint_título"
+            android:inputType="textAutoCorrect"
+            android:maxLines="1"
+            android:padding="@dimen/padding_médio"
+            android:textColor="@color/nile_night"
+            android:textColorHint="@color/navy_teal"
+            android:textSize="@dimen/et_título" />
+
+        <EditText
+            android:id="@+id/et_noticia"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margem_notícia"
+            android:layout_marginStart="@dimen/padding_médio"
+            android:layout_marginTop="@dimen/margem_pequena"
+            android:layout_marginEnd="@dimen/padding_médio"
+            android:background="@color/white"
+            android:gravity="start"
+            android:hint="@string/et_hint_noticia"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/padding_médio"
+            android:textColor="@color/nile_night"
+            android:textColorHint="@color/navy_teal"
+            android:textSize="@dimen/et_título" />
+
+        <EditText
+            android:id="@+id/et_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_médio"
+            android:layout_marginTop="@dimen/margem_pequena"
+            android:layout_marginEnd="@dimen/padding_médio"
+            android:background="@color/white"
+            android:gravity="start"
+            android:hint="@string/et_hint_data"
+            android:inputType="date"
+            android:maxLength="10"
+            android:padding="@dimen/padding_médio"
+            android:textColor="@color/nile_night"
+            android:textColorHint="@color/navy_teal"
+            android:textSize="@dimen/et_título" />
+
+        <EditText
+            android:id="@+id/et_autor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_médio"
+            android:layout_marginTop="@dimen/margem_pequena"
+            android:layout_marginEnd="@dimen/padding_médio"
+            android:background="@color/white"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:hint="@string/et_hint_autor"
+            android:inputType="textAutoCorrect"
+            android:maxLines="1"
+            android:padding="@dimen/padding_médio"
+            android:textColor="@color/nile_night"
+            android:textColorHint="@color/navy_teal"
+            android:textSize="@dimen/et_título" />
+
+        <Button
+            android:id="@+id/btn_publicar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margem_média"
+            android:backgroundTint="@color/nile_night"
+            android:padding="@dimen/padding_médio"
+            android:text="@string/btn_publicar"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/btn_publicar" />
+
+    </LinearLayout>
+</ScrollView>
