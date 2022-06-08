@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/margem_grande"
+            android:layout_marginTop="@dimen/margem_média"
             android:text="@string/título_principal"
             android:textColor="@color/white"
             android:textSize="@dimen/tv_título"

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "938629782421",
+    "project_id": "app-de-noticias-abb1e",
+    "storage_bucket": "app-de-noticias-abb1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938629782421:android:4bc793d5a86ef6c3afb49c",
+        "android_client_info": {
+          "package_name": "com.example.appnotciasadm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938629782421-quvelljcf3j0nqrvko0ol8htravanq58.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQfTbPGDjgzRmq8bXQIcqsbtd8gqjkZDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938629782421-quvelljcf3j0nqrvko0ol8htravanq58.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
