@@ -39,7 +39,8 @@
             android:padding="@dimen/padding_médio"
             android:textColor="@color/nile_night"
             android:textColorHint="@color/navy_teal"
-            android:textSize="@dimen/et_título" />
+            android:textSize="@dimen/et_título"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/et_noticia"
@@ -55,7 +56,8 @@
             android:padding="@dimen/padding_médio"
             android:textColor="@color/nile_night"
             android:textColorHint="@color/navy_teal"
-            android:textSize="@dimen/et_título" />
+            android:textSize="@dimen/et_título"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/et_data"
@@ -72,7 +74,8 @@
             android:padding="@dimen/padding_médio"
             android:textColor="@color/nile_night"
             android:textColorHint="@color/navy_teal"
-            android:textSize="@dimen/et_título" />
+            android:textSize="@dimen/et_título"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/et_autor"
@@ -90,7 +93,8 @@
             android:padding="@dimen/padding_médio"
             android:textColor="@color/nile_night"
             android:textColorHint="@color/navy_teal"
-            android:textSize="@dimen/et_título" />
+            android:textSize="@dimen/et_título"
+            android:autofillHints="" />
 
         <Button
             android:id="@+id/btn_publicar"
