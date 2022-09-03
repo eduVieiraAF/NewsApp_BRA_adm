@@ -8,6 +8,7 @@
 package com.example.appnotciasadm
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appnotciasadm.databinding.ActivityMainBinding
@@ -16,7 +17,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val db = FirebaseFirestore.getInstance()
-    var id = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,13 +35,13 @@ class MainActivity : AppCompatActivity() {
             ) Toast
                 .makeText(this, R.string.campo_vazio, Toast.LENGTH_SHORT).show()
             else {
-                id++
                 salvarNotícia(
                     título,
                     notícia,
                     data,
                     autor
                 )
+                Log.i("News", "$título → $notícia")
             }
         }
     }
@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         data: String,
         autor: String
     ) {
+        val idInt = gerarId()
         val mapNotícias = hashMapOf(
             "título" to título,
             "notícia" to notícia,
@@ -59,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             "autor" to autor
         )
 
-        db.collection("notícias").document("notícia$id")
+        db.collection("notícias").document("notícia_id_$idInt")
             .set(mapNotícias).addOnCompleteListener {
                 if (it.isSuccessful)
                     Toast.makeText(this, R.string.publicado, Toast.LENGTH_SHORT).show()
@@ -74,6 +75,14 @@ class MainActivity : AppCompatActivity() {
         binding.etNoticia.text.clear()
         binding.etData.text.clear()
         binding.etAutor.text.clear()
+    }
 
+    private fun gerarId(): String {
+        var alphaNum = "abcdeABCD3@$#*1234567890"
+        var id = ""
+        for (i in 1..5) {
+           id += alphaNum.random()
+        }
+        return id
     }
 }
