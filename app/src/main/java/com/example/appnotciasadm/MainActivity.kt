@@ -2,7 +2,8 @@
     "LocalVariableName",
     "SpellCheckingInspection",
     "NonAsciiCharacters",
-    "FunctionName")
+    "FunctionName"
+)
 
 package com.example.appnotciasadm
 
@@ -15,6 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val db = FirebaseFirestore.getInstance()
+    var id = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             ) Toast
                 .makeText(this, R.string.campo_vazio, Toast.LENGTH_SHORT).show()
             else {
+                id++
                 salvarNotícia(
                     título,
                     notícia,
@@ -43,7 +46,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun salvarNotícia(título: String, notícia: String, data: String, autor: String) {
+    private fun salvarNotícia(
+        título: String,
+        notícia: String,
+        data: String,
+        autor: String
+    ) {
         val mapNotícias = hashMapOf(
             "título" to título,
             "notícia" to notícia,
@@ -51,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             "autor" to autor
         )
 
-        db.collection("notícias").document("notícia")
+        db.collection("notícias").document("notícia$id")
             .set(mapNotícias).addOnCompleteListener {
                 if (it.isSuccessful)
                     Toast.makeText(this, R.string.publicado, Toast.LENGTH_SHORT).show()
