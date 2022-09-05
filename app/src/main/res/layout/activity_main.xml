@@ -68,6 +68,7 @@
             android:layout_marginEnd="@dimen/padding_médio"
             android:background="@color/white"
             android:gravity="start"
+            android:enabled="false"
             android:hint="@string/et_hint_data"
             android:inputType="date"
             android:maxLength="10"

@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appnotciasadm.databinding.ActivityMainBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -23,10 +25,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar!!.hide()
 
+        val hoje = SimpleDateFormat("dd/MM/yyyy")
+        val data = hoje.format(Date()).toString()
+        binding.etData.setText(data)
+
         binding.btnPublicar.setOnClickListener {
 
             val título = binding.etTitulo.text.toString()
-            val data = binding.etData.text.toString()
+
             val notícia = binding.etNoticia.text.toString()
             val autor = binding.etAutor.text.toString()
 
@@ -44,12 +50,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun salvarNotícia(
-        título: String,
-        notícia: String,
-        data: String,
-        autor: String
-    ) {
+    private fun salvarNotícia(título: String, notícia: String, data: String, autor: String) {
         val mapNotícias = hashMapOf(
             "título" to título,
             "notícia" to notícia,
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             "autor" to autor
         )
 
-        db.collection("notícias").document("${título}_${data}_$autor")
+        db.collection("notícias").document("${título.trim()}(${autor.trim()})")
             .set(mapNotícias).addOnCompleteListener {
                 if (it.isSuccessful)
                     Toast.makeText(this, R.string.publicado, Toast.LENGTH_SHORT).show()
@@ -70,7 +71,6 @@ class MainActivity : AppCompatActivity() {
     private fun limparCampos() {
         binding.etTitulo.text.clear()
         binding.etNoticia.text.clear()
-        binding.etData.text.clear()
         binding.etAutor.text.clear()
     }
 }
