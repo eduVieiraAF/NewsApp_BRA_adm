@@ -9,6 +9,9 @@
     <string name="et_hint_data">Data de Publicação</string>
     <string name="et_hint_autor">Autor</string>
     <string name="campo_vazio">Preencha todos os campos para publicar sua notícia</string>
-    <string name="publicado">Sua notícia foi publicada com sucesso!</string>
+    <string name="publicado">Sua notícia foi publicada!</string>
+    <string name="título_curto">Nome do título curto</string>
+    <string name="notícia_curta">Corpo da notícia curta.</string>
+    <string name="autor_curto">Nome do autor curto.</string>
 
 </resources>
