@@ -70,8 +70,6 @@
             android:gravity="start"
             android:enabled="false"
             android:hint="@string/et_hint_data"
-            android:inputType="date"
-            android:maxLength="10"
             android:padding="@dimen/padding_médio"
             android:textColor="@color/nile_night"
             android:textColorHint="@color/navy_teal"

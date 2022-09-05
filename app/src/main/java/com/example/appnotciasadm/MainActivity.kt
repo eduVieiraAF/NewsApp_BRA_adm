@@ -32,21 +32,17 @@ class MainActivity : AppCompatActivity() {
         binding.btnPublicar.setOnClickListener {
 
             val título = binding.etTitulo.text.toString()
-
             val notícia = binding.etNoticia.text.toString()
             val autor = binding.etAutor.text.toString()
 
-            if (título.isEmpty() || data.isEmpty() || notícia.isEmpty() || autor.isEmpty()
-            ) Toast
-                .makeText(this, R.string.campo_vazio, Toast.LENGTH_SHORT).show()
-            else {
-                salvarNotícia(
-                    título,
-                    notícia,
-                    data,
-                    autor
-                )
-            }
+            if (título.isEmpty() || data.isEmpty() || notícia.isEmpty() || autor.isEmpty())
+                Toast.makeText(this, R.string.campo_vazio, Toast.LENGTH_SHORT).show()
+            else salvarNotícia(
+                título,
+                notícia,
+                data,
+                autor
+            )
         }
     }
 
@@ -60,9 +56,10 @@ class MainActivity : AppCompatActivity() {
 
         db.collection("notícias").document("${título.trim()}(${autor.trim()})")
             .set(mapNotícias).addOnCompleteListener {
-                if (it.isSuccessful)
+                if (it.isSuccessful) {
                     Toast.makeText(this, R.string.publicado, Toast.LENGTH_SHORT).show()
-                limparCampos()
+                    limparCampos()
+                }
             }.addOnFailureListener {
                 Toast.makeText(this, "Erro", Toast.LENGTH_SHORT).show()
             }
