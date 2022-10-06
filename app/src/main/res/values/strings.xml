@@ -6,7 +6,6 @@
     <string name="btn_publicar">Publicar Notícia</string>
     <string name="et_hint_título">Título</string>
     <string name="et_hint_noticia">Escreva aqui a notícia</string>
-    <string name="et_hint_data">Data de Publicação</string>
     <string name="et_hint_autor">Autor</string>
     <string name="campo_vazio">Preencha todos os campos para publicar sua notícia</string>
     <string name="publicado">Sua notícia foi publicada!</string>
