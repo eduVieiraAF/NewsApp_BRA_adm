@@ -8,7 +8,10 @@
 package com.example.appnotciasadm
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appnotciasadm.databinding.ActivityMainBinding
@@ -39,20 +42,30 @@ class MainActivity : AppCompatActivity() {
 
             if (título.isEmpty() || data.isEmpty() || notícia.isEmpty() || autor.isEmpty())
                 Toast.makeText(this, R.string.campo_vazio, Toast.LENGTH_SHORT).show()
-            else salvarNotícia(
-                título,
-                notícia,
-                data,
-                autor
-            )
+            else {
+                if (título.length < 4) Toast.makeText(
+                    this,
+                    R.string.título_curto,
+                    Toast.LENGTH_SHORT
+                ).show()
+                else if (notícia.length < 25) Toast.makeText(
+                    this,
+                    R.string.notícia_curta,
+                    Toast.LENGTH_SHORT
+                ).show()
+                else salvarNotícia(
+                    título,
+                    notícia,
+                    data,
+                    autor
+                )
+            }
 
             recolherTeclado()
         }
     }
 
     private fun salvarNotícia(título: String, notícia: String, data: String, autor: String) {
-        // TODO() definir número min de caracteres para título e notícia
-
         val mapNotícias = hashMapOf(
             "título" to título,
             "notícia" to notícia,
@@ -78,7 +91,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun recolherTeclado() {
-        // TODO() metodo para recolher teclado limparCampos()
+        val view: View? = this.currentFocus
+
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 }
 

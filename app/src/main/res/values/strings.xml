@@ -11,7 +11,6 @@
     <string name="publicado">Sua notícia foi publicada!</string>
     <string name="título_curto">Nome do título curto</string>
     <string name="notícia_curta">Corpo da notícia curta.</string>
-    <string name="autor_curto">Nome do autor curto.</string>
     <string name="data">20/02/1982</string>
 
 </resources>
