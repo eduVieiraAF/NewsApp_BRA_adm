@@ -2,7 +2,7 @@
 
     <string name="app_name">App Notícias Adm</string>
 
-    <string name="título_principal">Escreva uma Notícia</string>
+    <string name="título_principal">Escreva sua Notícia</string>
     <string name="btn_publicar">Publicar Notícia</string>
     <string name="et_hint_título">Título</string>
     <string name="et_hint_noticia">Escreva aqui a notícia</string>
@@ -12,5 +12,6 @@
     <string name="título_curto">Nome do título curto</string>
     <string name="notícia_curta">Corpo da notícia curta.</string>
     <string name="autor_curto">Nome do autor curto.</string>
+    <string name="data">20/02/1982</string>
 
 </resources>

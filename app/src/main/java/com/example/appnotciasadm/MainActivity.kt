@@ -45,10 +45,14 @@ class MainActivity : AppCompatActivity() {
                 data,
                 autor
             )
+
+            recolherTeclado()
         }
     }
 
     private fun salvarNotícia(título: String, notícia: String, data: String, autor: String) {
+        // TODO() definir número min de caracteres para título e notícia
+
         val mapNotícias = hashMapOf(
             "título" to título,
             "notícia" to notícia,
@@ -72,4 +76,9 @@ class MainActivity : AppCompatActivity() {
         binding.etNoticia.text.clear()
         binding.etAutor.text.clear()
     }
+
+    private fun recolherTeclado() {
+        // TODO() metodo para recolher teclado limparCampos()
+    }
 }
+

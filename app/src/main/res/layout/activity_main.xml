@@ -19,6 +19,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/margem_média"
             android:text="@string/título_principal"
+            android:fontFamily="cursive"
             android:textColor="@color/white"
             android:textSize="@dimen/tv_título"
             android:textStyle="bold" />
@@ -67,11 +68,13 @@
             android:layout_marginTop="@dimen/margem_pequena"
             android:layout_marginEnd="@dimen/padding_médio"
             android:background="@color/white"
+            android:textStyle="bold"
+            android:text="@string/data"
             android:gravity="start"
             android:enabled="false"
             android:padding="@dimen/padding_médio"
             android:textColor="@color/nile_night"
-            android:textColorHint="@color/navy_teal"
+            android:textColorHint="@color/dark_slate_gray"
             android:textSize="@dimen/et_título"
             android:importantForAutofill="no" />
 
