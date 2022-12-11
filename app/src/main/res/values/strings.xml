@@ -12,5 +12,7 @@
     <string name="título_curto">Nome do título curto</string>
     <string name="notícia_curta">Corpo da notícia curta.</string>
     <string name="data">20/02/1982</string>
+    <string name="erro">ERRO</string>
+    <string name="bd_erro"><![CDATA[Erro <unknown> ao salvar dados]]></string>
 
 </resources>

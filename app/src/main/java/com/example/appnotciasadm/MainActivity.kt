@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appnotciasadm.databinding.ActivityMainBinding
 import com.google.firebase.firestore.FirebaseFirestore
@@ -80,7 +81,11 @@ class MainActivity : AppCompatActivity() {
                     limparCampos()
                 }
             }.addOnFailureListener {
-                Toast.makeText(this, "Erro", Toast.LENGTH_SHORT).show()
+                AlertDialog.Builder(this@MainActivity)
+                    .setTitle(R.string.erro)
+                    .setMessage(R.string.bd_erro)
+                    .setPositiveButton("OK") { _, _ -> }
+                    .show()
             }
     }
 
