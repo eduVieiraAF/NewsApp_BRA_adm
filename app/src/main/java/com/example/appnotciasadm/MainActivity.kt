@@ -8,11 +8,11 @@
 package com.example.appnotciasadm
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.appnotciasadm.databinding.ActivityMainBinding
@@ -23,6 +23,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val db = FirebaseFirestore.getInstance()
+    private var mProgressDialog: Dialog? = null
 
     @SuppressLint("SimpleDateFormat")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,24 +43,26 @@ class MainActivity : AppCompatActivity() {
             val autor = binding.etAutor.text.toString()
 
             if (título.isEmpty() || data.isEmpty() || notícia.isEmpty() || autor.isEmpty())
-                Toast.makeText(this, R.string.campo_vazio, Toast.LENGTH_SHORT).show()
+                AlertDialog.Builder(this@MainActivity)
+                    .setTitle(R.string.erro)
+                    .setMessage(R.string.campo_vazio)
+                    .setPositiveButton("OK") { _, _ -> }
+                    .show()
             else {
-                if (título.length < 4) Toast.makeText(
-                    this,
-                    R.string.título_curto,
-                    Toast.LENGTH_SHORT
-                ).show()
-                else if (notícia.length < 25) Toast.makeText(
-                    this,
-                    R.string.notícia_curta,
-                    Toast.LENGTH_SHORT
-                ).show()
-                else salvarNotícia(
-                    título,
-                    notícia,
-                    data,
-                    autor
-                )
+                if (título.length < 4) AlertDialog.Builder(this@MainActivity)
+                    .setTitle(R.string.erro)
+                    .setMessage(R.string.título_curto)
+                    .setPositiveButton("OK") { _, _ -> }
+                    .show()
+                else if (notícia.length < 25) AlertDialog.Builder(this@MainActivity)
+                    .setTitle(R.string.erro)
+                    .setMessage(R.string.notícia_curta)
+                    .setPositiveButton("OK") { _, _ -> }
+                    .show()
+                else {
+                    customToastOn()
+                    salvarNotícia(título, notícia, data, autor)
+                }
             }
 
             recolherTeclado()
@@ -77,7 +80,12 @@ class MainActivity : AppCompatActivity() {
         db.collection("notícias").document("${título.trim()}(${autor.trim()})")
             .set(mapNotícias).addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, R.string.publicado, Toast.LENGTH_SHORT).show()
+                    customToastOff()
+                    AlertDialog.Builder(this@MainActivity)
+                        .setTitle(R.string.sucesso)
+                        .setMessage(R.string.publicado)
+                        .setPositiveButton("OK") { _, _ -> }
+                        .show()
                     limparCampos()
                 }
             }.addOnFailureListener {
@@ -90,9 +98,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun limparCampos() {
-        binding.etTitulo.text.clear()
-        binding.etNoticia.text.clear()
-        binding.etAutor.text.clear()
+        binding.etTitulo.text!!.clear()
+        binding.etNoticia.text!!.clear()
+        binding.etAutor.text!!.clear()
     }
 
     private fun recolherTeclado() {
@@ -102,6 +110,18 @@ class MainActivity : AppCompatActivity() {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
+    }
+
+    private fun customToastOn() {
+        mProgressDialog = Dialog(this)
+        mProgressDialog.let {
+            it?.setContentView(R.layout.dialog_custom_progress)
+            it?.show()
+        }
+    }
+
+    private fun customToastOff() {
+        mProgressDialog?.dismiss()
     }
 }
 
