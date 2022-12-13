@@ -44,18 +44,18 @@ class MainActivity : AppCompatActivity() {
 
             if (título.isEmpty() || data.isEmpty() || notícia.isEmpty() || autor.isEmpty())
                 AlertDialog.Builder(this@MainActivity)
-                    .setTitle(R.string.erro)
+                    .setTitle(R.string.alerta)
                     .setMessage(R.string.campo_vazio)
                     .setPositiveButton("OK") { _, _ -> }
                     .show()
             else {
                 if (título.length < 4) AlertDialog.Builder(this@MainActivity)
-                    .setTitle(R.string.erro)
+                    .setTitle(R.string.alerta)
                     .setMessage(R.string.título_curto)
                     .setPositiveButton("OK") { _, _ -> }
                     .show()
                 else if (notícia.length < 25) AlertDialog.Builder(this@MainActivity)
-                    .setTitle(R.string.erro)
+                    .setTitle(R.string.alerta)
                     .setMessage(R.string.notícia_curta)
                     .setPositiveButton("OK") { _, _ -> }
                     .show()

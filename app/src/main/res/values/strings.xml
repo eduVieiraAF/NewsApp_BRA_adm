@@ -17,5 +17,6 @@
     <string name="dados">Campos</string>
     <string name="sucesso">Notícia</string>
     <string name="salvar">Salvando</string>
+    <string name="alerta">ALERTA</string>
 
 </resources>
